@@ -1,4 +1,4 @@
-//variables toanaging players and trns
+//variables to managing players and turn
 var players = [];
 var markers = ["X", "O"];
 var points = [];
@@ -10,7 +10,7 @@ var gameOver;
 var winTone = new Audio('soundEffects/winTone.wav');
 var failTone = new Audio('soundEffects/failTone.wav');
 
-var help = document.getElementById("game-message");
+var status = document.getElementById("game-message");
 //Get the player information
 function grabNames() {
 	players[0] = document.getElementById('player-1').value;
@@ -20,12 +20,12 @@ function grabNames() {
 		players[i] = "player "+ (i+1);
 		}
 	}
-	help.innerText = players[whoseTurn] + "'s Turn!";
+	status.innerText = players[whoseTurn] + "'s Turn!";
 	document.getElementById("name-form").style.display = "none";
 }
 //Game board
 function drawBoard() {
-	help.innerText = "Tic Tac Toe";
+	status.innerText = "Tic Tac Toe";
 	var display = "";
 	var binCount = 1;
 	for (var i = 1; i <= 3; i++) {
@@ -50,9 +50,9 @@ function startGame(){
 // display the game Status
 function gameStatus(message = false){
 	if(!message){
-	help.innerText = players[whoseTurn] + "'s Turn!";
+	status.innerText = players[whoseTurn] + "'s Turn!";
 	}else{
-	help.innerText = message;	
+	status.innerText = message;	
 	}	
 }
 //play the game
