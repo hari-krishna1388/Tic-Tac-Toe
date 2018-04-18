@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tic-Tac-Toe</title>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body onload="startGame()">
+	<form id="name-form">
+		<div>
+		<h5> Enter the player name </h5>
+		<input id="player-1" type="text" placeholder="player 1" onfocus="this.value = ''" value="player 1"><br/>
+		<input id="player-2" type="text" placeholder="player 2" onfocus="this.value = ''" value="player 2"><br/>
+		<button type="button" onclick="grabNames()" name="Play"> PLAY</button>
+	</div>
+	</form>
+	<div class="endGame">
+		<span class="endGame-text"></span>
+		<h5>Want to play gain?</h5>
+		<button onclick="startGame()" type="button"> Re-Set the board</button>
+</div>
+	<h2 id="game-message"></h2>
+	<br/><br/>
+	<div id="game-board" class="board">
+	</div>
+<script src="js/tictactoe.js"></script>
+</body>
+</html>
