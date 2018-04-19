@@ -10,7 +10,7 @@ var gameOver;
 var winTone = new Audio('soundEffects/winTone.wav');
 var failTone = new Audio('soundEffects/failTone.wav');
 
-var status = document.getElementById("game-message");
+var gStatus = document.getElementById("game-message");
 //Get the player information
 function grabNames() {
 	players[0] = document.getElementById('player-1').value;
@@ -20,12 +20,12 @@ function grabNames() {
 		players[i] = "player "+ (i+1);
 		}
 	}
-	status.innerText = players[whoseTurn] + "'s Turn!";
+	gStatus.innerText = players[whoseTurn] + "'s Turn!";
 	document.getElementById("name-form").style.display = "none";
 }
 //Game board
 function drawBoard() {
-	status.innerText = "Tic Tac Toe";
+	gStatus.innerText = "Tic Tac Toe";
 	var display = "";
 	var binCount = 1;
 	for (var i = 1; i <= 3; i++) {
@@ -47,12 +47,12 @@ function startGame(){
 	points = [0, 0];
 	drawBoard();
 }
-// display the game Status
-function gameStatus(message = false){
+// display the game status
+function gamegStatus(message = false){
 	if(!message){
-	status.innerText = players[whoseTurn] + "'s Turn!";
+	gStatus.innerText = players[whoseTurn] + "'s Turn!";
 	}else{
-	status.innerText = message;	
+	gStatus.innerText = message;	
 	}	
 }
 //play the game
@@ -68,14 +68,14 @@ function play(clickedDiv, divValue){
 // Track player to display whose turn is it?
 function toggle(){
 	whoseTurn = (whoseTurn ? 0 : 1);
-	gameStatus();
+	gamegStatus();
 }
 //check for winner
 function winCheck(){
 	for(var i = 0; i < winValues.length; i++){
 		if((points[whoseTurn] & winValues[i]) == winValues[i]){
 			winTone.play();
-			gameStatus(players[whoseTurn] + " won !"); 
+			gamegStatus(players[whoseTurn] + " won !"); 
 			setTimeout(function(){
 			document.querySelector('.endGame').style.display = "block";
 			document.querySelector('.endGame .endGame-text').innerText = players[whoseTurn] + " won against " + players[+!whoseTurn] + "!";
